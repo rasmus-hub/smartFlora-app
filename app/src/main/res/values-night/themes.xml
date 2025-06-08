@@ -3,5 +3,15 @@
     <style name="Base.Theme.SmartFlora" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/darkGreen</item>
+        <item name="colorSecondary">@color/green</item>
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+
+        <item name="android:fontFamily">@font/montserrat_variablefont</item>
     </style>
+
+    <style name="Theme.SmartFlora" parent="Base.Theme.SmartFlora" />
 </resources>
