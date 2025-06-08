@@ -1,18 +1,671 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgView"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Barra de búsqueda -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:background="@drawable/bg_input"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        android:elevation="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_magnifying_glass"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscar funcionalidad..."
+            android:textSize="14sp"
+            android:textColorHint="@color/gray"
+            app:fontVariationSettings="'wght' 600"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/bg_input"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:padding="15dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Clima -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_input">
+
+                <!-- Ubicacion actual - Header -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_map_pin"/>
+
+                    <TextView
+                        android:id="@+id/actualLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Puerto Montt"
+                        android:textColor="@color/black"
+                        app:fontVariationSettings="'wght' 700"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="3dp"/>
+                </LinearLayout>
+
+                <!-- Temperatura -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <!-- Temperatura actual -->
+                    <TextView
+                        android:id="@+id/actualTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+15°C"
+                        android:textColor="@color/black"
+                        android:textSize="40sp"
+                        app:fontVariationSettings="'wght' 700"/>
+
+                    <!-- Temperatura maxima y minima -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp">
+
+                        <!-- Temperatura maxima -->
+                        <TextView
+                            android:id="@+id/actualMaxTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MAX: 21°C"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 500"/>
+
+                        <!-- Temperatura minima -->
+                        <TextView
+                            android:id="@+id/actualMinTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MIN: 12°C"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 500"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_cloud"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="10dp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGray"/>
+
+                <!-- Variables del clima -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <!-- Variable humedad -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Humedad"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+
+                        <TextView
+                            android:id="@+id/actualHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="45%"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 600"/>
+                    </LinearLayout>
+
+                    <!-- Variable precipitacion -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Precipitación"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+
+                        <TextView
+                            android:id="@+id/actualPrecip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5.1ml"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 600"/>
+                    </LinearLayout>
+
+                    <!-- Variable presion -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Presión"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+
+                        <TextView
+                            android:id="@+id/actualPressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="450hPa"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 600"/>
+                    </LinearLayout>
+
+                    <!-- Variable viento -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Viento"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+
+                        <TextView
+                            android:id="@+id/actualWind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="23 m/s"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 600"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Alertas de riesgo -->
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_input">
+
+                <!-- Titulo - Header -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_bell"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alertas de riesgo"
+                        android:textColor="@color/black"
+                        app:fontVariationSettings="'wght' 700"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="3dp"/>
+                </LinearLayout>
+
+                <!-- Notificacion -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/bg_alert"
+                    android:padding="10dp"
+                    android:elevation="5dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_bolt"
+                        android:background="@drawable/bg_icon"
+                        android:padding="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Habrá una tormenta"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 700"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hace 10 minutos"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Notificacion -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:background="@drawable/bg_alert"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:elevation="5dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_cloud"
+                        android:background="@drawable/bg_icon"
+                        android:padding="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Habrá una día de nubes dur..."
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 700"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hace 1 día"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Boton para ir a ver alertas -->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ver alertas"
+                    android:textColor="@color/white"
+                    app:fontVariationSettings="'wght' 800"
+                    android:background="@drawable/bg_button_green"
+                    app:backgroundTint="@null"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <!-- Mis dispositivos -->
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_input">
+
+                <!-- Titulo - Header -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_device_radar"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mis dispositivos"
+                        android:textColor="@color/black"
+                        app:fontVariationSettings="'wght' 700"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <!-- Dispositivo -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@drawable/bg_alert"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:src="@drawable/ic_device_sfv1"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="Estación de monitoreo 1"
+                                android:textColor="@color/black"
+                                app:fontVariationSettings="'wght' 700"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SFV1"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray"
+                                app:fontVariationSettings="'wght' 400"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="conect"
+                                android:textColor="@color/white"
+                                android:textSize="8dp"
+                                app:fontVariationSettings="'wght' 800"
+                                android:background="@drawable/bg_button_green"
+                                app:backgroundTint="@null"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Dispositivo -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@drawable/bg_alert"
+                        android:layout_marginLeft="6dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:src="@drawable/ic_device_sfv1"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="Estación de monitoreo 2"
+                                android:textColor="@color/black"
+                                app:fontVariationSettings="'wght' 700"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SFV1"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray"
+                                app:fontVariationSettings="'wght' 400"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="desconect"
+                                android:textColor="@color/white"
+                                android:textSize="8dp"
+                                app:fontVariationSettings="'wght' 800"
+                                android:background="@drawable/bg_button_red"
+                                app:backgroundTint="@null"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Boton para ir a ver dispositivos -->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ver dispositivos"
+                    android:textColor="@color/white"
+                    app:fontVariationSettings="'wght' 800"
+                    android:background="@drawable/bg_button_green"
+                    app:backgroundTint="@null"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <!-- Metricas -->
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_input">
+
+                <!-- Titulo - Header -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_map"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Metricas"
+                        android:textColor="@color/black"
+                        app:fontVariationSettings="'wght' 700"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="3dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <!-- Metrica variables -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="@drawable/bg_alert"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/logo_metrics_variables"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/logo_metrics_chart"/>
+
+                    </LinearLayout>
+
+                    <!-- Metrica mapa -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_alert"
+                        android:layout_marginLeft="10dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/logo_metrics_map"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Campo de papas"
+                            android:textColor="@color/black"
+                            app:fontVariationSettings="'wght' 700"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1 hectarea - Papas"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray"
+                            app:fontVariationSettings="'wght' 400"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Boton para ir a ver las metricas -->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ver metricas"
+                    android:textColor="@color/white"
+                    app:fontVariationSettings="'wght' 800"
+                    android:background="@drawable/bg_button_green"
+                    app:backgroundTint="@null"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:padding="20dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_home"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_device_radar_big"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_fields_plantation"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_settings"/>
+    </LinearLayout>
+</FrameLayout>
