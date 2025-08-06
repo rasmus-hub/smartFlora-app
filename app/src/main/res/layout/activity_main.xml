@@ -79,7 +79,7 @@
                         android:id="@+id/actualLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Puerto Montt"
+                        android:text="-"
                         android:textColor="@color/black"
                         app:fontVariationSettings="'wght' 700"
                         android:paddingTop="10dp"
@@ -99,7 +99,7 @@
                         android:id="@+id/actualTemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+15°C"
+                        android:text="-"
                         android:textColor="@color/black"
                         android:textSize="40sp"
                         app:fontVariationSettings="'wght' 700"/>
@@ -116,7 +116,7 @@
                             android:id="@+id/actualMaxTemp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MAX: 21°C"
+                            android:text="MAX: -"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 500"/>
 
@@ -125,7 +125,7 @@
                             android:id="@+id/actualMinTemp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MIN: 12°C"
+                            android:text="MIN: -"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 500"/>
                     </LinearLayout>
@@ -167,7 +167,7 @@
                             android:id="@+id/actualHumidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="45%"
+                            android:text="-"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
@@ -190,7 +190,7 @@
                             android:id="@+id/actualPrecip"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5.1ml"
+                            android:text="-"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
@@ -213,7 +213,7 @@
                             android:id="@+id/actualPressure"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="450hPa"
+                            android:text="-"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
@@ -236,7 +236,7 @@
                             android:id="@+id/actualWind"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="23 m/s"
+                            android:text="-"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>

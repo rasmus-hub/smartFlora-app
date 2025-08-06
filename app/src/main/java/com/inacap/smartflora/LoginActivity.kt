@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,13 +25,14 @@ class LoginActivity : AppCompatActivity() {
         val etUsuario = findViewById<EditText>(R.id.etUsuario)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnIngresar = findViewById<Button>(R.id.btnIngresar)
+        val btnTvLogin = findViewById<TextView>(R.id.tvLogin)
 
         btnIngresar.setOnClickListener {
-            val email = etUsuario.text.toString().trim()
+            val usuario = etUsuario.text.toString().trim()
             val password = etPassword.text.toString()
 
-            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                etUsuario.error = "Ingresa un correo válido"
+            if (usuario.isEmpty()) {
+                etUsuario.error = "Ingresa un usuario válido"
                 etUsuario.requestFocus()
                 return@setOnClickListener
             }
@@ -44,7 +46,11 @@ class LoginActivity : AppCompatActivity() {
             // Todo bien, avanzamos a MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+        }
+
+        btnTvLogin.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }

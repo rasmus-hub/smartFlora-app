@@ -115,6 +115,5 @@ class RegisterActivity : AppCompatActivity() {
     private fun irAlLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish()
     }
 }

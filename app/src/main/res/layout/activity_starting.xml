@@ -13,12 +13,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/white">
+        android:background="@color/lightGray">
 
         <ImageView
             android:id="@+id/ivLogo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/planta_logo"
             android:contentDescription="@string/app_name"/>
     </LinearLayout>
