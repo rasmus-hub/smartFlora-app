@@ -1,47 +1,133 @@
-from flask import Flask, request, jsonify
-from pymongo import MongoClient
-from flask_cors import CORS
+from flask import Flask, request, jsonify  
+from pymongo import MongoClient  
+from werkzeug.security import generate_password_hash, check_password_hash  
+import re  
 
-
-app = Flask(__name__)
-CORS(app)  # Permite llamadas desde cualquier origen
-
+app = Flask(__name__)  
 #  Conexión a MongoDB Atlas (reemplaza con tu cadena de conexión)
 client = MongoClient("mongodb+srv://navarrorivasj3:Inacap5@smartflora.b3q7h7k.mongodb.net/")
-db = client["Test"]  # Nombre de la base de datos
-collection = db["Test"]  # Nombre de la colección
-test_collection = db["Test"]
+db = client["Inicio_Sesion"]  # Nombre de la base de datos
+collection = db["user_collection"]  # Nombre de la colección
+users_collection = db["users"]
 
-#  GET: Obtener todos los datos
-@app.route("/items", methods=["GET"])
-def get_items():
-    items = list(collection.find({}, {"_id": 0}))  # Ocultamos el _id de Mongo
-    return jsonify(items)
+#apartado de registro de usuarios
 
-# POST: Agregar un nuevo dato
-@app.route("/items", methods=["POST"])
-def add_item():
+@app.route('/api/register', methods=['POST'])  
+def register():  
+    data = request.get_json()  
+    email = data.get('email')  
+    password = data.get('password')  
+    users_collection = db["users"]
+
+    # Validaciones básicas  
+    if not email or not password:  
+        return jsonify({"error": "Email y contraseña son requeridos"}), 400  
+
+    if users_collection.find_one({"email": email}):  
+        return jsonify({"error": "El usuario ya existe"}), 409  
+
+    # Encriptar contraseña  
+    hashed_password = generate_password_hash(password)  
+
+    # Guardar en MongoDB  
+    user_id = users_collection.insert_one({  
+        "email": email,  
+        "password": hashed_password  
+    }).inserted_id  
+
+    return jsonify({"message": "Usuario creado", "id": str(user_id)}), 201  
+
+#Apartado Inicio de Sesion
+
+@app.route('/api/login', methods=['POST'])  
+def login():  
+    data = request.get_json()  
+    email = data.get('email')  
+    password = data.get('password')  
+
+    user = users_collection.find_one({"email": email})  
+
+    if not user or not check_password_hash(user["password"], password):  
+        return jsonify({"error": "Credenciales inválidas"}), 401  
+
+    return jsonify({"message": "Login exitoso", "user_id": str(user["_id"])}), 200  
+
+import secrets  
+
+#Apartado de recuperación de contraseña
+
+@app.route('/api/forgot-password', methods=['POST'])
+def forgot_password():
     data = request.get_json()
-    if not data or "name" not in data or "edad" not in data:
-        return jsonify({"error": "Faltan campos"}), 400
-    collection.insert_one(data)
-    return jsonify({"message": "Item agregado con éxito"}), 201
+    email = data.get('email')
+    
+    # Busca al usuario por email (no por token)
+    user = users_collection.find_one({"email": email})  # ← Clave aquí
+    
+    if not user:
+        return jsonify({"error": "Email no registrado"}), 404
 
-# DELETE: eliminar un item por name y Edad
-@app.route("/items", methods=["DELETE"])
-def delete_item():
+    # Genera y guarda el token en el usuario
+    reset_token = secrets.token_urlsafe(32)
+    users_collection.update_one(
+        {"email": email},  # ← Busca por email, no por _id
+        {"$set": {"reset_token": reset_token}}
+    )
+
+    # Debug: Imprime el token en consola (para pruebas en Postman)
+    print(f"Token para {email}: {reset_token}")
+    
+    return jsonify({"message": "Token generado. Revisa tu email.", "token": reset_token}), 200
+
+#Apartado de restauración de contraseña
+
+@app.route('/api/reset-password', methods=['POST'])
+def reset_password():
     data = request.get_json()
-    name = data.get("name")
-    edad = data.get("edad")
+    token = data.get('token')
+    new_password = data.get('new_password')
 
-    if not name or edad is None:
-        return jsonify({"error": "Faltan campos 'name' o 'edad'"}), 400
+    # Busca al usuario por el token (no por email)
+    user = users_collection.find_one({"reset_token": token})  # ← Clave aquí
+    
+    if not user:
+        return jsonify({"error": "Token inválido o expirado"}), 400
 
-    result = collection.delete_one({"name": name, "edad": edad})
+    # Actualiza la contraseña y elimina el token
+    hashed_password = generate_password_hash(new_password)
+    users_collection.update_one(
+        {"reset_token": token},
+        {
+            "$set": {"password": hashed_password},
+            "$unset": {"reset_token": ""}  # Elimina el token después de usarlo
+        }
+    )
+    
+    return jsonify({"message": "Contraseña actualizada"}), 200 
 
-    if result.deleted_count == 1:
-        return jsonify({"mensaje": f"Item con name='{name}' y Edad={edad} eliminado"}), 200
-    else:
-        return jsonify({"error": "Item no encontrado"}), 404
+#apartado de eliminar ususarios
+@app.route('/api/delete-account', methods=['DELETE'])
+def delete_account():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')  # Validación opcional para seguridad
 
-app.run(debug=True)
+    if not email:
+        return jsonify({"error": "Email es requerido"}), 400
+
+    # Busca al usuario y verifica credenciales (opcional)
+    user = users_collection.find_one({"email": email})
+    if not user:
+        return jsonify({"error": "Usuario no encontrado"}), 404
+
+    # Opcional: Validar contraseña antes de eliminar
+    if password and not check_password_hash(user["password"], password):
+        return jsonify({"error": "Contraseña incorrecta"}), 401
+
+    # Elimina el usuario
+    users_collection.delete_one({"email": email})
+
+    return jsonify({"message": "Cuenta eliminada exitosamente"}), 200
+
+if __name__ == '__main__':
+    app.run(port=5000)  # Usa otro puerto

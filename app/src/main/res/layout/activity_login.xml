@@ -49,17 +49,17 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="15dp"
-          android:text="Usuario"
+          android:text="Correo Electrónico"
           android:textColor="@color/black"
           app:fontVariationSettings="'wght' 500"/>
 
       <EditText
-          android:id="@+id/etUsuario"
+          android:id="@+id/etEmail"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="5dp"
           android:background="@drawable/edittext_normal_border"
-          android:hint="Ingrese nombre de usuario"
+          android:hint="Ingrese Correo Electrónico"
           android:textSize="16sp"
           app:fontVariationSettings="'wght' 400"
           android:inputType="textEmailAddress"
