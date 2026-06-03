@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
-    private val apiKey = "7b7bb5db45f186fe2a6753fa93d25950" // Reemplaza con tu API KEY de OpenWeather
+    private val apiKey = "45e06a1c0c5625120bbc484fa3b09605"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,17 +48,15 @@ class MainActivity : AppCompatActivity() {
                                 Log.d("CLIMA", "Estado: ${clima?.weather?.firstOrNull()?.description}")
 
                                 // Obtener elementos
-                                val actualLocation = findViewById<TextView>(R.id.actualLocation)
                                 val actualTemp = findViewById<TextView>(R.id.actualTemp)
                                 val actualMaxTemp = findViewById<TextView>(R.id.actualMaxTemp)
                                 val actualMinTemp = findViewById<TextView>(R.id.actualMinTemp)
                                 val actualHumidity = findViewById<TextView>(R.id.actualHumidity)
-                                val actualPrecip = findViewById<TextView>(R.id.actualPrecip)
-                                val actualPressure = findViewById<TextView>(R.id.actualPressure)
-                                val actualWind = findViewById<TextView>(R.id.actualWind)
+                                val actualPh = findViewById<TextView>(R.id.actualPh)
+                                val actualEC = findViewById<TextView>(R.id.actualEC)
+                                val actualNPK = findViewById<TextView>(R.id.actualNPK)
 
                                 // Actualizar variables
-                                clima?.name?.let { actualLocation.setText(it) }
                                 clima?.main?.temp?.minus(273.15)?.toInt()
                                     ?.let { actualTemp.setText("+${it}°C") }
                                 clima?.main?.temp_min?.minus(273.15)?.toInt()
@@ -66,9 +64,9 @@ class MainActivity : AppCompatActivity() {
                                 clima?.main?.temp_max?.minus(273.15)?.toInt()
                                     ?.let { actualMaxTemp.setText("MIN: ${it + 2}°C") }
                                 clima?.main?.humidity?.let { actualHumidity.setText("${it}%") }
-                                actualPrecip.setText("5.1ml")
-                                clima?.main?.pressure?.let { actualPressure.setText("${it}hPa") }
-                                clima?.wind?.speed?.let { actualWind.setText("${it} m/s") }
+                                actualPh.setText("7")
+                                actualEC.setText("1.4 mS/cm")
+                                actualNPK.setText("15-5-30")
                             }
                         } else {
                             Log.e("CLIMA", "Error clima: ${weatherResponse.errorBody()?.string()}")

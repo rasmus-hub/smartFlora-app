@@ -53,7 +53,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Clima -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,10 +75,9 @@
                         android:src="@drawable/ic_map_pin"/>
 
                     <TextView
-                        android:id="@+id/actualLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
+                        android:text="Estación de monitoreo 1"
                         android:textColor="@color/black"
                         app:fontVariationSettings="'wght' 700"
                         android:paddingTop="10dp"
@@ -89,7 +87,7 @@
 
                 <!-- Temperatura -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center">
@@ -101,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:text="-"
                         android:textColor="@color/black"
-                        android:textSize="40sp"
+                        android:textSize="50sp"
                         app:fontVariationSettings="'wght' 700"/>
 
                     <!-- Temperatura maxima y minima -->
@@ -118,6 +116,7 @@
                             android:layout_height="wrap_content"
                             android:text="MAX: -"
                             android:textColor="@color/black"
+                            android:textSize="18sp"
                             app:fontVariationSettings="'wght' 500"/>
 
                         <!-- Temperatura minima -->
@@ -127,15 +126,9 @@
                             android:layout_height="wrap_content"
                             android:text="MIN: -"
                             android:textColor="@color/black"
+                            android:textSize="18sp"
                             app:fontVariationSettings="'wght' 500"/>
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_cloud"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginBottom="10dp"/>
                 </LinearLayout>
 
                 <View
@@ -172,7 +165,7 @@
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
 
-                    <!-- Variable precipitacion -->
+                    <!-- Variable pH -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -182,12 +175,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Precipitación"
+                            android:text="Acidez (pH)"
                             android:textColor="@color/gray"
                             app:fontVariationSettings="'wght' 400"/>
 
                         <TextView
-                            android:id="@+id/actualPrecip"
+                            android:id="@+id/actualPh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
@@ -195,7 +188,7 @@
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
 
-                    <!-- Variable presion -->
+                    <!-- Variable electroconductividad -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -205,12 +198,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Presión"
+                            android:text="EC"
                             android:textColor="@color/gray"
                             app:fontVariationSettings="'wght' 400"/>
 
                         <TextView
-                            android:id="@+id/actualPressure"
+                            android:id="@+id/actualEC"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
@@ -218,7 +211,7 @@
                             app:fontVariationSettings="'wght' 600"/>
                     </LinearLayout>
 
-                    <!-- Variable viento -->
+                    <!-- Variable NPK -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -228,12 +221,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Viento"
+                            android:text="NPK"
                             android:textColor="@color/gray"
                             app:fontVariationSettings="'wght' 400"/>
 
                         <TextView
-                            android:id="@+id/actualWind"
+                            android:id="@+id/actualNPK"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
@@ -291,7 +284,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_bolt"
+                        android:src="@drawable/ic_watering_can"
                         android:background="@drawable/bg_icon"
                         android:padding="10dp"/>
 
@@ -304,7 +297,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Habrá una tormenta"
+                            android:text="Cultivo con falta de agua"
                             android:textColor="@color/black"
                             app:fontVariationSettings="'wght' 700"/>
 
@@ -444,7 +437,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="SFV1"
+                                android:text="SF-SIGIV1"
                                 android:textSize="12sp"
                                 android:textColor="@color/gray"
                                 app:fontVariationSettings="'wght' 400"/>
@@ -452,7 +445,7 @@
                             <Button
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:text="conect"
+                                android:text="conectado"
                                 android:textColor="@color/white"
                                 android:textSize="8dp"
                                 app:fontVariationSettings="'wght' 800"
@@ -494,7 +487,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="SFV1"
+                                android:text="SF-SIGIV1"
                                 android:textSize="12sp"
                                 android:textColor="@color/gray"
                                 app:fontVariationSettings="'wght' 400"/>
@@ -502,7 +495,7 @@
                             <Button
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
-                                android:text="desconect"
+                                android:text="desconectado"
                                 android:textColor="@color/white"
                                 android:textSize="8dp"
                                 app:fontVariationSettings="'wght' 800"
@@ -550,7 +543,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Metricas"
+                        android:text="Reportes"
                         android:textColor="@color/black"
                         app:fontVariationSettings="'wght' 700"
                         android:paddingTop="10dp"
@@ -585,43 +578,13 @@
                             android:src="@drawable/logo_metrics_chart"/>
 
                     </LinearLayout>
-
-                    <!-- Metrica mapa -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/bg_alert"
-                        android:layout_marginLeft="10dp"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/logo_metrics_map"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Campo de papas"
-                            android:textColor="@color/black"
-                            app:fontVariationSettings="'wght' 700"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="1 hectarea - Papas"
-                            android:textSize="12sp"
-                            android:textColor="@color/gray"
-                            app:fontVariationSettings="'wght' 400"/>
-                    </LinearLayout>
                 </LinearLayout>
 
                 <!-- Boton para ir a ver las metricas -->
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ver metricas"
+                    android:text="Ver reportes"
                     android:textColor="@color/white"
                     app:fontVariationSettings="'wght' 800"
                     android:background="@drawable/bg_button_green"

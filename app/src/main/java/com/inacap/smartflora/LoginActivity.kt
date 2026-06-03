@@ -43,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Todo bien, avanzamos a MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

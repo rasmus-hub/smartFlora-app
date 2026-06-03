@@ -16,7 +16,6 @@
         android:theme="@style/Theme.SmartFlora"
         tools:targetApi="31">
 
-        <!-- Activity de Inicio: StartingActivity -->
         <activity
             android:name=".Starting"
             android:exported="true">
@@ -26,22 +25,18 @@
             </intent-filter>
         </activity>
 
-        <!-- IntroActivity -->
         <activity
             android:name=".IntroActivity"
             android:exported="true" />
 
-        <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
 
-        <!-- RegistroActivity -->
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
 
-        <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />

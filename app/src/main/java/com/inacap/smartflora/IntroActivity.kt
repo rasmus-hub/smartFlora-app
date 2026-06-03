@@ -20,9 +20,9 @@ class IntroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val introList = listOf(
-            IntroSlide(R.drawable.img1, "Organiza tus cultivos de acuerdo a la información recolectada"),
-            IntroSlide(R.drawable.img2, "Recibe notificaciones de riesgo y del clima"),
-            IntroSlide(R.drawable.img3, "Gestiona tus dispositivos con solo unos clics")
+            IntroSlide(R.drawable.img1, "Gestiona tu invernadero de acuerdo a la información recolectada"),
+            IntroSlide(R.drawable.img2, "Recibe notificaciones de riesgo sobre el cultivo"),
+            IntroSlide(R.drawable.img3, "Gestiona el sistema con solo unos clics")
         )
 
         adapter = IntroAdapter(introList)
@@ -35,18 +35,6 @@ class IntroActivity : AppCompatActivity() {
                 irARegistro()
             }
         }
-
-        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if (position == introList.lastIndex && !yaCambiado) {
-                    yaCambiado = true
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        irARegistro()
-                    }, 1000)
-                }
-            }
-        })
     }
 
     private fun irARegistro() {
