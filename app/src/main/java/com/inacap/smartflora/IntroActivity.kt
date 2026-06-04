@@ -26,7 +26,7 @@ class IntroActivity : AppCompatActivity() {
         )
 
         adapter = IntroAdapter(introList)
-        binding.viewPager.adapter = adapter
+        binding.viewPager.adapter = adapterasesioaejsauihsauihsauiehsaui
 
         binding.btnSiguiente.setOnClickListener {
             if (binding.viewPager.currentItem < introList.lastIndex) {
