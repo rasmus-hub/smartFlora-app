@@ -10,6 +10,13 @@
     <color name="green">#51C728</color>
     <color name="darkRed">#A32E2E</color>
     <color name="lightRed">#FF7D7D</color>
-    <color name="darkYellow">#F9A825</color>
-    <color name="lightYellow">#FFF59D</color>
+    <color name="fondo_app">#1B2A1E</color>
+    <color name="verde_boton">#4CAF50</color>
+    <color name="verde_link">#7DBA84</color>
+    <color name="card_bg">#2C3E2F</color>
+    <color name="fondo_bottom_nav">#173C08</color>
+    <color name="fondo_card">#1E4A08</color>
+    <color name="chip_bg">#F0F0F0</color>
+    <color name="bottom_nav_tint">#FFFFFF</color>
 </resources>
+
