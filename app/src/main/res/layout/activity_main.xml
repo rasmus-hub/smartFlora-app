@@ -507,7 +507,7 @@
 
                 <!-- Boton para ir a ver dispositivos -->
                 <Button
-                    android:id="@+id/btnDispositivo"
+                    android:id="@+id/btnDevices"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ver dispositivos"
@@ -606,13 +606,14 @@
         android:gravity="center_horizontal">
 
         <ImageView
+            android:id="@+id/btnNavHome"
             android:layout_gravity="center"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_home"/>
 
         <ImageView
-            android:id="@+id/barDevicesIcon"
+            android:id="@+id/btnNavDevices"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
@@ -620,7 +621,7 @@
             android:src="@drawable/ic_device_radar_big"/>
 
         <ImageView
-            android:id="@+id/barFarmingIcon"
+            android:id="@+id/btnNavFarming"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
@@ -628,7 +629,7 @@
             android:src="@drawable/ic_fields_plantation"/>
 
         <ImageView
-            android:id="@+id/barSettingsIcon"
+            android:id="@+id/btnNavSettings"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
