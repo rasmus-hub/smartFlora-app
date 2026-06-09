@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgView"
+    tools:context=".DispositivosActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="135dp"
+        android:padding="15dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_device_radar_big"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dispositivos"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:fontVariationSettings="'wght' 700"
+                    android:paddingLeft="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_input"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:elevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estación de monitoreo 1"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontVariationSettings="'wght' 700"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Invernadero 1 - SIGIV2"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray"
+                        app:fontVariationSettings="'wght' 400"
+                        android:layout_marginBottom="15dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:text="ver dispositivo"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontVariationSettings="'wght' 800"
+                            android:background="@drawable/bg_button_yellow"
+                            app:backgroundTint="@null"
+                            android:paddingHorizontal="15dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="conectado"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontVariationSettings="'wght' 800"
+                            android:background="@drawable/bg_button_green"
+                            app:backgroundTint="@null"
+                            android:layout_marginLeft="10dp"
+                            android:paddingHorizontal="10dp"
+                            android:clickable="false"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_device_sfv1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_input"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:elevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estación de monitoreo 2"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontVariationSettings="'wght' 700"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Invernadero 1 - SIGIV2"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray"
+                        app:fontVariationSettings="'wght' 400"
+                        android:layout_marginBottom="15dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:text="ver dispositivo"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontVariationSettings="'wght' 800"
+                            android:background="@drawable/bg_button_yellow"
+                            app:backgroundTint="@null"
+                            android:paddingHorizontal="15dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="desconectado"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontVariationSettings="'wght' 800"
+                            android:background="@drawable/bg_button_red"
+                            app:backgroundTint="@null"
+                            android:layout_marginLeft="10dp"
+                            android:paddingHorizontal="10dp"
+                            android:clickable="false"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_device_sfv1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="75dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="Agregar nuevo dispositivo"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:fontVariationSettings="'wght' 800"
+        android:background="@drawable/bg_button_green"
+        app:backgroundTint="@null"
+        android:elevation="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:padding="20dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_home"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_device_radar_big"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_fields_plantation"/>
+
+        <ImageView
+            android:layout_marginStart="70dp"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_settings"/>
+    </LinearLayout>
+
+</FrameLayout>

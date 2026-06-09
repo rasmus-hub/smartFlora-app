@@ -1,7 +1,9 @@
 package com.inacap.smartflora
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.util.Log
 import android.widget.TextView
 import com.inacap.smartflora.data.RetrofitInstance
@@ -17,7 +19,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val btnDispositivo = findViewById<Button>(R.id.btnDispositivo)
 
+        btnDispositivo.setOnClickListener {
+            val intent = Intent(this, DispositivosActivity::class.java)
+            startActivity(intent)
+        }
         obtenerClimaPorCiudad("Puerto Montt,CL")
     }
 

@@ -507,6 +507,7 @@
 
                 <!-- Boton para ir a ver dispositivos -->
                 <Button
+                    android:id="@+id/btnDispositivo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ver dispositivos"
