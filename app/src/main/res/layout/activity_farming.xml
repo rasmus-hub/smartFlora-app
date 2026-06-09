@@ -454,50 +454,54 @@
         android:layout_height="60dp"
         android:background="#FFFFFF"
         android:elevation="8dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/btnNavHome"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
             android:clickable="true"
-            android:contentDescription="Inicio"
             android:focusable="true"
+            android:contentDescription="Inicio"
             android:src="@drawable/ic_home" />
 
         <ImageView
-            android:id="@+id/btnNavSensor"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
+            android:id="@+id/btnNavDevices"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
             android:clickable="true"
-            android:contentDescription="Sensor"
             android:focusable="true"
+            android:contentDescription="Sensor"
             android:src="@drawable/ic_device_radar_big" />
 
         <ImageView
-            android:id="@+id/btnNavCultivos"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
+            android:id="@+id/btnNavFarming"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
             android:clickable="true"
-            android:contentDescription="Cultivos"
             android:focusable="true"
+            android:contentDescription="Cultivos"
             android:src="@drawable/ic_fields_plantation" />
 
         <ImageView
-            android:id="@+id/btnNavAjustes"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="1"
+            android:id="@+id/btnNavSettings"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="70dp"
             android:clickable="true"
-            android:contentDescription="Ajustes"
             android:focusable="true"
+            android:contentDescription="Ajustes"
             android:src="@drawable/ic_settings" />
     </LinearLayout>
 

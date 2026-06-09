@@ -7,6 +7,7 @@ import android.widget.Button
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.inacap.smartflora.data.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,25 +22,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnDispositivo = findViewById<Button>(R.id.btnDispositivo)
-        val barDevicesIcon = findViewById<ImageView>(R.id.barDevicesIcon)
-        val barFarmingIcon = findViewById<ImageView>(R.id.barFarmingIcon)
-        val barSettingsIcon = findViewById<ImageView>(R.id.barSettingsIcon)
+        val btnDevices = findViewById<Button>(R.id.btnDevices)
+        val btnNavHome = findViewById<ImageView>(R.id.btnNavHome)
+        val btnNavDevices = findViewById<ImageView>(R.id.btnNavDevices)
+        val btnNavFarming = findViewById<ImageView>(R.id.btnNavFarming)
+        val btnNavSettings = findViewById<ImageView>(R.id.btnNavSettings)
 
-        btnDispositivo.setOnClickListener {
-            val intent = Intent(this, DispositivosActivity::class.java)
+        btnDevices.setOnClickListener {
+            val intent = Intent(this, DevicesActivity::class.java)
             startActivity(intent)
         }
 
-        barDevicesIcon.setOnClickListener {
-            val intent = Intent(this, DispositivosActivity::class.java)
+        btnNavHome.setOnClickListener {
+            Toast.makeText(this, "Ya estás en Inicio", Toast.LENGTH_SHORT).show()
+        }
+
+        btnNavDevices.setOnClickListener {
+            val intent = Intent(this, DevicesActivity::class.java)
             startActivity(intent)
         }
 
-        barFarmingIcon.setOnClickListener {
+        btnNavFarming.setOnClickListener {
+            val intent = Intent(this, FarmingActivity::class.java)
+            startActivity(intent)
         }
 
-        barSettingsIcon.setOnClickListener {
+        btnNavSettings.setOnClickListener {
         }
 
         obtenerClimaPorCiudad("Puerto Montt,CL")
