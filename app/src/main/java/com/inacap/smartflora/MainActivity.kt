@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import com.inacap.smartflora.data.RetrofitInstance
 import kotlinx.coroutines.CoroutineScope
@@ -19,12 +20,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val btnDispositivo = findViewById<Button>(R.id.btnDispositivo)
+        val barDevicesIcon = findViewById<ImageView>(R.id.barDevicesIcon)
+        val barFarmingIcon = findViewById<ImageView>(R.id.barFarmingIcon)
+        val barSettingsIcon = findViewById<ImageView>(R.id.barSettingsIcon)
 
         btnDispositivo.setOnClickListener {
             val intent = Intent(this, DispositivosActivity::class.java)
             startActivity(intent)
         }
+
+        barDevicesIcon.setOnClickListener {
+            val intent = Intent(this, DispositivosActivity::class.java)
+            startActivity(intent)
+        }
+
+        barFarmingIcon.setOnClickListener {
+        }
+
+        barSettingsIcon.setOnClickListener {
+        }
+
         obtenerClimaPorCiudad("Puerto Montt,CL")
     }
 
