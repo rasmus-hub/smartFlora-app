@@ -612,6 +612,7 @@
             android:src="@drawable/ic_home"/>
 
         <ImageView
+            android:id="@+id/barDevicesIcon"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
@@ -619,6 +620,7 @@
             android:src="@drawable/ic_device_radar_big"/>
 
         <ImageView
+            android:id="@+id/barFarmingIcon"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
@@ -626,6 +628,7 @@
             android:src="@drawable/ic_fields_plantation"/>
 
         <ImageView
+            android:id="@+id/barSettingsIcon"
             android:layout_marginStart="70dp"
             android:layout_gravity="center"
             android:layout_width="20dp"
