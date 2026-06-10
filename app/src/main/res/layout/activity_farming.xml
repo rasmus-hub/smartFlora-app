@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -44,16 +44,16 @@
                     android:text="Cultivos"
                     app:fontVariationSettings="'wght' 700"
                     android:textColor="#1A1A1A"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imgIconoHoja"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginStart="4dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:paddingLeft="8dp"
                     android:contentDescription="Hoja"
-                    android:src="@drawable/ic_leaf"
+                    android:src="@drawable/ic_fields_plantation"
                     app:tint="#1A1A1A" />
             </LinearLayout>
 
@@ -448,61 +448,132 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Footer -->
     <LinearLayout
         android:id="@+id/bottomNavLayout"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:gravity="center_horizontal"
+        android:elevation="4dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/btnNavHome"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:id="@+id/navHomeContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Inicio"
-            android:src="@drawable/ic_home" />
+            android:focusable="true">
 
-        <ImageView
-            android:id="@+id/btnNavDevices"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="70dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Sensor"
-            android:src="@drawable/ic_device_radar_big" />
+            <ImageView
+                android:id="@+id/btnNavHome"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Inicio"
+                android:src="@drawable/ic_home" />
 
-        <ImageView
-            android:id="@+id/btnNavFarming"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="70dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Cultivos"
-            android:src="@drawable/ic_fields_plantation" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Inicio"
+                android:textSize="10sp"
+                android:textColor="#1A1A1A"
+                app:fontVariationSettings="'wght' 700" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/btnNavSettings"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="70dp"
+        <LinearLayout
+            android:id="@+id/navDevicesContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="Ajustes"
-            android:src="@drawable/ic_settings" />
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btnNavDevices"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Dispositivos"
+                android:src="@drawable/ic_device_radar_big" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Dispositivos"
+                android:textSize="10sp"
+                android:textColor="#1A1A1A"
+                app:fontVariationSettings="'wght' 700" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navFarmingContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btnNavFarming"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Cultivos"
+                android:src="@drawable/ic_fields_plantation"
+                app:tint="@color/darkGreen" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Cultivos"
+                android:textSize="10sp"
+                android:textColor="@color/darkGreen"
+                app:fontVariationSettings="'wght' 700" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navSettingsContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btnNavSettings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Ajustes"
+                android:src="@drawable/ic_settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Ajustes"
+                android:textSize="10sp"
+                android:textColor="#1A1A1A"
+                app:fontVariationSettings="'wght' 700" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

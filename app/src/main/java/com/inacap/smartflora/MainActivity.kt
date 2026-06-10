@@ -92,9 +92,9 @@ class MainActivity : AppCompatActivity() {
                                 clima?.main?.temp?.minus(273.15)?.toInt()
                                     ?.let { actualTemp.setText("+${it}°C") }
                                 clima?.main?.temp_min?.minus(273.15)?.toInt()
-                                    ?.let { actualMinTemp.setText("MAX: ${it - 2}°C") }
+                                    ?.let { actualMinTemp.setText("MIN: ${it - 2}°C") }
                                 clima?.main?.temp_max?.minus(273.15)?.toInt()
-                                    ?.let { actualMaxTemp.setText("MIN: ${it + 2}°C") }
+                                    ?.let { actualMaxTemp.setText("MAX: ${it + 2}°C") }
                                 clima?.main?.humidity?.let { actualHumidity.setText("${it}%") }
                                 actualPh.setText("7")
                                 actualEC.setText("1.4 mS/cm")
